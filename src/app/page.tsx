@@ -1,18 +1,13 @@
 import CreateNewGoal from "@/components/CreateNewGoal";
-import GoalCard, { USDollar } from "@/components/GoalCard";
+import GoalCard from "@/components/GoalCard";
+import GoalsContainer from "@/components/Goals";
 import TotalMonthly from "@/components/TotalMonthly";
-import { GOALS } from "@/config";
-import { GoalController } from "@/controllers/goal.controller";
-import { getTimeDiff } from "@/functions";
-import { getTotalContributions } from "@/functions/getTotalContributions";
+import { useGoals } from "@/hooks/useGoals";
 import { useSupabase } from "@/hooks/useSupabase";
-import { Container, Flex, Grid, Heading, ScrollArea, Text } from "@radix-ui/themes";
-import Image from "next/image";
+import { Flex, Grid, Heading, ScrollArea } from "@radix-ui/themes";
+import React, { useCallback, useEffect, useState } from "react";
 
-export default async function Home() {
-	const supabase = useSupabase();
-	const goals = await supabase.from("savings_goals").select("", { count: "exact" });
-
+export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center p-24 bg-zinc-900">
 			<Grid className="max-w-3xl w-full" columns={"2"} mb="2">
@@ -28,13 +23,7 @@ export default async function Home() {
 					<TotalMonthly />
 					<CreateNewGoal />
 				</Flex>
-				<Flex className="flex-col">
-					<ScrollArea className="max-h-[75vh]">
-						<Flex className="gap-3 flex-col">
-							{goals.data && goals.data.map((g) => <GoalCard goal={g} />)}
-						</Flex>
-					</ScrollArea>
-				</Flex>
+				<GoalsContainer />
 			</Grid>
 		</main>
 	);

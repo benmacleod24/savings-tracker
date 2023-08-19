@@ -1,34 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Savings Tracker
 
-## Getting Started
+Proof of Concept/Work in Progress
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+This project sparked from the need to break down how I should save for a couple of months. Although I could have done this very easily in a spreadsheet, I decided to go a little more in-depth and over-engineer a super simple spreadsheet. This will definitely advance into a system that will track each of my deposits into my savings and tell me the progress I have left. For now, the breakdown of how much I need to contribute every month works well for my use cases.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technology
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The technology being used in the project is quite simple yet highly effective. I wanted it to be completely serverless, so I could set it up and let it run autonomously. That's why I decided to deploy it on Vercel using Next.js 13 (App Router) and utilizing a Postgres database on Supabase.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The UI was personally styled and designed by me, using TailwindCSS and Radix UI as a wrapper around Tailwind. This allows me to get started very quickly and visualize my backend with ease.

@@ -16,11 +16,15 @@ export const useGoals = () => {
 	>([]);
 	const supabase = useSupabase();
 
-	const collect = useCallback(async () => {
+	const collect = async () => {
 		const goals = await supabase.from("savings_goals").select("*");
 		if (goals.data) {
 			setData(goals.data);
 		}
+	};
+
+	useEffect(() => {
+		collect();
 	}, []);
 
 	return data;

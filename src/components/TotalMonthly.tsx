@@ -1,6 +1,6 @@
 import { Card, Flex, Text } from "@radix-ui/themes";
 import React, { useState, useEffect } from "react";
-import { USDollar } from "./GoalCard";
+import { USDollar } from "../functions/USDollar";
 import { getTotalContributions } from "@/functions/getTotalContributions";
 import { MONTHLY_INCOME } from "@/config";
 
