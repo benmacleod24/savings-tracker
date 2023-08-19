@@ -2,7 +2,6 @@ import { Card, Flex, Text } from "@radix-ui/themes";
 import React, { useState, useEffect } from "react";
 import { USDollar } from "../functions/USDollar";
 import { getTotalContributions } from "@/functions/getTotalContributions";
-import { MONTHLY_INCOME } from "@/config";
 
 interface TotalMonthlyProps {}
 
@@ -12,8 +11,10 @@ interface TotalMonthlyProps {}
  */
 const TotalMonthly: React.FC<TotalMonthlyProps> = async (props) => {
 	const totalContributions = await getTotalContributions();
-	const percentOfIncome = (totalContributions / MONTHLY_INCOME) * 100;
-	const leftAfterContributions = MONTHLY_INCOME - totalContributions;
+	const percentOfIncome =
+		(totalContributions / Number(process.env.MONTHLY_INCOME as string)) * 100;
+	const leftAfterContributions =
+		Number(process.env.MONTHLY_INCOME as string) - totalContributions;
 	return (
 		<Card>
 			<Flex className="flex-col" gap="0">
